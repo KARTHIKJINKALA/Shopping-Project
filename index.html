@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NikeWorld</title>
+    <style>
+        /* Styling for the parent grid layout */
+        .parent {
+            margin-top: 5%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            row-gap: 10px;
+            text-align: center;
+        }
+
+        /* Card styling */
+        .card {
+            height: 72vh;
+            width: 30vw;
+            border: 2px solid blue;
+            border-radius: 2%;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* Image styling */
+        .img1 {
+            border-radius: 1.9%;
+            height: 46vh;
+            width: 30vw;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* X-offset, Y-offset, blur-radius, shadow-color */
+            border-radius: 10px;
+            transition: transform 1.0s ease;
+        }
+
+        /* Zoom animation on hover */
+        .img1:hover {
+            transform: scale(1.1); /* Scale the image by 1.1 */
+        }
+
+        /* Model styling */
+        .model {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(95, 151, 160);
+            text-shadow: 1px 1px 1px rgb(153, 51, 153);
+        }
+
+        /* Price styling */
+        .price {
+            color: blue;
+        }
+
+        /* Add to cart button */
+        .addcart {
+            color: rgb(43, 43, 226);
+            background: rgba(255, 255, 255, 0.591);
+            box-shadow: 0 8px 32px 0 rgba(133, 31, 135, 0.37);
+            backdrop-filter: blur(3.5px);
+            -webkit-backdrop-filter: blur(3.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* Navbar styling */
+        .navbar {
+            position: sticky;
+            top: 0px;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000; /* Black background */
+            padding: 1rem 2rem;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Logo styling */
+        .navbar .logo {
+            font-size: 1.8rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Navigation links styling */
+        .navbar .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar .nav-links a {
+            color: #fff; /* White text */
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover effect for links */
+        .navbar .nav-links a:hover {
+            color: #f39c12; /* Orange color on hover */
+        }
+        .whitelist{
+            margin-left: 2%;
+            color: rgb(43, 43, 226);
+            background: rgba(255, 255, 255, 0.591);
+            box-shadow: 0 8px 32px 0 rgba(133, 31, 135, 0.37);
+            backdrop-filter: blur(3.5px);
+            -webkit-backdrop-filter: blur(3.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .sort{
+            margin-top: 5%;
+            height:7vh;
+            width: 100%;
+            border: 2px solid blue;
+            position: fixed;
+            bottom: 0px;
+
+
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: flex;
+            justify-content: center;
+            gap: 2%;
+        }
+        .sortlist1,.sortlist2{
+            text-align: center;
+            color: #f31212;
+            width: 25vw;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">NikeWorld</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+
+    <script>
+        var emp=[]
+        var emp1=[]
+
+        var parent = document.createElement("div");
+        parent.setAttribute("class", "parent");
+        document.body.appendChild(parent);
+
+        var twobuttons= document.createElement("div");
+        twobuttons.setAttribute("class", "sort");
+        document.body.appendChild(twobuttons);
+
+        var sortlist1= document.createElement("button");
+        sortlist1.innerHTML="whitelist"
+        sortlist1.setAttribute("class", "sortlist1");
+        twobuttons.appendChild(sortlist1);
+
+        var sortlist2= document.createElement("button");
+        sortlist2.innerHTML="cart"
+        sortlist2.setAttribute("class", "sortlist1");
+        twobuttons.appendChild(sortlist2);
+
+
+
+        async function hello() {
+            try {
+                var a = await fetch("http://localhost:3000/data");
+                var b = await a.json();
+                console.log(b);
+
+
+                b.map(function(val) {
+                    var card = document.createElement("div");
+                    card.setAttribute("class", "card");
+                    parent.appendChild(card);
+
+                    var img1 = document.createElement("img");
+                    img1.src = val.image;
+                    img1.setAttribute("class", "img1");
+                    card.appendChild(img1);
+
+
+                    var model = document.createElement("h5");
+                    model.innerHTML = val.model;
+                    model.setAttribute("class", "model");
+                    card.appendChild(model);
+
+
+                    var price = document.createElement("h5");
+                    price.innerHTML = val.price;
+                    price.setAttribute("class", "price");
+                    card.appendChild(price);
+
+
+                    var addcart = document.createElement("button");
+                    addcart.innerHTML = "Add to Cart";
+                    addcart.setAttribute("class", "addcart");
+                    card.appendChild(addcart);
+
+                    var whitelist= document.createElement("button");
+                    whitelist.innerHTML = "Add to Whitelist";
+                    whitelist.setAttribute("class", "whitelist");
+                    card.appendChild(whitelist);
+
+
+                    whitelist.addEventListener("click", () => {
+                        alert("Item successfully added to the cart!");
+                        console.log(val);
+                        emp.push(val);
+                        localStorage.setItem("whitelist",JSON.stringify(emp))
+
+                    });
+
+                    addcart.addEventListener("click", () => {
+                        alert("Item successfully added to the cart!");
+                        console.log(val);
+                        emp1.push(val);
+                        localStorage.setItem("cart",JSON.stringify(emp1))
+
+                    });
+
+                    sortlist1.addEventListener("click",()=>{
+                     window.open("whitelist.html","_self")
+                    })
+
+                    sortlist2.addEventListener("click",()=>{
+                     window.open("addtocart.html","_self")
+                    })
+
+
+
+
+
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        hello();
+    </script>
+
+
+
+</body>
+</html>

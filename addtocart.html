@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card2 {
+            height: auto;
+            width: auto;
+            border: 2px solid blue;
+            border-radius: 2%;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .parent1 {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+        }
+
+        .card3 {
+            margin-top: 2%;
+            height: 20vh;
+            width: 60vw;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .img2 {
+            height: 100%;
+            width: auto;
+            max-width: 20%;
+            border-radius: 5px;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 60%;
+        }
+
+        .btns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .totalbill {
+            position: fixed;
+            top: 20%;
+            height: 40vh;
+            width: 30vw;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>My cart</h1>
+    <script>
+        var output = localStorage.getItem("cart");
+        var disp = JSON.parse(output);
+        console.log(disp);
+
+        var parent1 = document.createElement("div");
+        parent1.setAttribute("class", "parent1");
+        document.body.appendChild(parent1);
+
+        var totalbill = document.createElement("div");
+        totalbill.setAttribute("class", "totalbill");
+        totalbill.innerHTML = "Total Bill: ₹0";  // Initial display
+        document.body.appendChild(totalbill)
+
+
+        let totalAmount = 0;  // Keeps track of the total bill
+
+        disp.map(function(val) {
+            console.log(val);
+
+            var card3 = document.createElement("div");
+            card3.setAttribute("class", "card3");
+            parent1.appendChild(card3);
+
+            var img2 = document.createElement("img");
+            img2.src = val.image;
+            img2.setAttribute("class", "img2");
+            card3.appendChild(img2);
+
+            var info = document.createElement("div");
+            info.setAttribute("class", "info");
+            card3.appendChild(info);
+
+            var model1 = document.createElement("h4");
+            model1.innerHTML = val.model + "-";
+            info.appendChild(model1);
+
+            var price1 = document.createElement("h4");
+            price1.innerHTML = "Price: " + val.price;
+            price1.style.color = "red";
+            info.appendChild(price1);
+
+            var btns = document.createElement("div");
+            btns.setAttribute("class", "btns");
+            card3.appendChild(btns);
+
+            var minus = document.createElement("button");
+            minus.innerHTML = "-";
+            btns.appendChild(minus);
+
+            var countDisplay = document.createElement("button");
+            countDisplay.innerHTML = "0";  // Initial count display
+            btns.appendChild(countDisplay);
+
+            var plus = document.createElement("button");
+            plus.innerHTML = "+";
+            btns.appendChild(plus);
+
+            var count = 0;  // Individual count for each product
+
+            // Increase count and update total
+            plus.addEventListener("click", () => {
+                count++;
+                countDisplay.innerHTML = count;
+
+                let numericValue = val.price.replace(/[^0-9]/g, '');  
+                console.log(numericValue); 
+
+                totalbill.innerHTML = "Total Bill: $" + numericValue*count;
+            });
+
+            // Decrease count and update total
+            minus.addEventListener("click", () => {
+                if (count > 0) {
+                    count--;
+                    countDisplay.innerHTML = count;
+                    totalAmount -= Number(val.price);
+
+
+                let numericValue = val.price.replace(/[^0-9]/g, '');  
+                console.log(numericValue); 
+                totalbill.innerHTML = "Total Bill: $" + numericValue*count;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
