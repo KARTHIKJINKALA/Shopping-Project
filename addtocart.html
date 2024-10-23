@@ -63,7 +63,7 @@
         .totalbill {
             position: fixed;
             top: 20%;
-            height: 40vh;
+            height: auto;
             width: 30vw;
             background: rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -74,7 +74,21 @@
             padding: 20px;
             font-size: 1.5rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            row-gap: 25%;
         }
+
+        .place {
+            height: 10vh;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
     </style>
 </head>
 <body>
@@ -90,15 +104,33 @@
 
         var totalbill = document.createElement("div");
         totalbill.setAttribute("class", "totalbill");
-        totalbill.innerHTML = "Total Bill: ₹0";  // Initial display
-        document.body.appendChild(totalbill)
+        totalbill.innerHTML = "Total Bill: ₹0";
+        document.body.appendChild(totalbill);
+
+        var place = document.createElement("button");
+        place.innerHTML = "Place Order";
+        place.setAttribute("class", "place");
+        totalbill.appendChild(place);
 
 
-        let totalAmount = 0;  // Keeps track of the total bill
+        var home= document.createElement("button");
+        home.innerHTML = "Return To Home";
+        totalbill.appendChild(home);
+
+        var para = document.createElement("p");
+        para.style.color = "lightseagreen";
+        totalbill.appendChild(para);
+
+        let totalAmount = 0;
+
+    
+        function updateTotalBill() {
+            totalbill.innerHTML = "Total Bill: ₹" + totalAmount;
+            totalbill.appendChild(place);
+            totalbill.appendChild(para); 
+        }
 
         disp.map(function(val) {
-            console.log(val);
-
             var card3 = document.createElement("div");
             card3.setAttribute("class", "card3");
             parent1.appendChild(card3);
@@ -130,40 +162,59 @@
             btns.appendChild(minus);
 
             var countDisplay = document.createElement("button");
-            countDisplay.innerHTML = "0";  // Initial count display
+            countDisplay.innerHTML = "0";
             btns.appendChild(countDisplay);
 
             var plus = document.createElement("button");
             plus.innerHTML = "+";
             btns.appendChild(plus);
 
-            var count = 0;  // Individual count for each product
+            var count = 0;
 
-            // Increase count and update total
             plus.addEventListener("click", () => {
                 count++;
                 countDisplay.innerHTML = count;
 
-                let numericValue = val.price.replace(/[^0-9]/g, '');  
-                console.log(numericValue); 
-
-                totalbill.innerHTML = "Total Bill: $" + numericValue*count;
+                let numericValue = Number(val.price.replace(/[^0-9]/g, ''));
+                totalAmount += numericValue;
+                updateTotalBill();
             });
 
-            // Decrease count and update total
+        
             minus.addEventListener("click", () => {
                 if (count > 0) {
                     count--;
                     countDisplay.innerHTML = count;
-                    totalAmount -= Number(val.price);
 
-
-                let numericValue = val.price.replace(/[^0-9]/g, '');  
-                console.log(numericValue); 
-                totalbill.innerHTML = "Total Bill: $" + numericValue*count;
+                    let numericValue = Number(val.price.replace(/[^0-9]/g, ''));
+                    totalAmount -= numericValue;
+                    updateTotalBill();
                 }
+                home.addEventListener("click",()=>{
+                         window.open("index.html","_self")
+                        })
             });
+
         });
+
+
+
+        
+        place.addEventListener("click", () => {
+            para.innerHTML = "Order placed successfully!";
+            setTimeout(() => {
+                para.innerHTML = "";  
+                totalAmount=""
+            }, 3000);
+    
+
+
+
+
+
+            
+        });
+
     </script>
 </body>
 </html>
