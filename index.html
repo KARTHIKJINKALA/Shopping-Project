@@ -10,7 +10,7 @@
             margin-top: 5%;
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns:auto auto auto;
             gap: 20px;
             text-align: center;
            
@@ -37,18 +37,19 @@
             width: 30vw;
             box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* X-offset, Y-offset, blur-radius, shadow-color */
             border-radius: 10px;
-            transition: transform 1.0s ease;
+            transition: transform 2.2s ease-out;
         }
 
         /* Zoom animation on hover */
         .img1:hover {
-            transform: scale(1.1); /* Scale the image by 1.1 */
+            transform: scale(0.8); 
         }
 
         /* Model styling */
         .model {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: rgb(95, 151, 160);
+            /* width: auto; */
             text-shadow: 1px 1px 1px rgb(153, 51, 153);
         }
 
@@ -79,12 +80,22 @@
             background-color: #000; /* Black background */
             padding: 1rem 2rem;
             font-family: Arial, sans-serif;
+
+
+
+
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         /* Logo styling */
         .navbar .logo {
             font-size: 1.8rem;
-            color: #fff;
+            color: red;
             font-weight: bold;
         }
 
@@ -99,6 +110,8 @@
             text-decoration: none;
             font-size: 1rem;
             transition: color 0.3s ease;
+
+            color: blueviolet;
         }
 
         /* Hover effect for links */
@@ -147,6 +160,41 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
 
         }
+
+
+    @media screen and (width<576px) {
+        .card{
+            height: 70vh;
+        }
+       .parent{
+           display: grid;
+           justify-content: center;
+           grid-template-columns:auto auto ; 
+           width: auto;
+          
+           
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column
+        }
+        .model {
+            font-size: 0.1em;
+    
+        }
+        .addcart{
+            height: auto;
+        }
+        .whitelist{
+            height: auto;
+        }
+
+    }
+
     </style>
 </head>
 <body>

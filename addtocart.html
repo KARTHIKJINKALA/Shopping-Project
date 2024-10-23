@@ -113,10 +113,6 @@
         totalbill.appendChild(place);
 
 
-        var home= document.createElement("button");
-        home.innerHTML = "Return To Home";
-        totalbill.appendChild(home);
-
         var para = document.createElement("p");
         para.style.color = "lightseagreen";
         totalbill.appendChild(para);
@@ -190,10 +186,8 @@
                     totalAmount -= numericValue;
                     updateTotalBill();
                 }
-                home.addEventListener("click",()=>{
-                         window.open("index.html","_self")
-                        })
             });
+
 
         });
 
