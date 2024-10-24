@@ -200,6 +200,38 @@
         }
 
     }
+    .fashion{
+        display: flex;
+        gap: 2%;
+    }
+    .card1,.card2,.card3{
+        margin-top: 2%;
+        height: 35vh;
+        width: auto;
+        text-align: justify;
+        border:  2px solid blue;
+        text-align: center;
+      
+
+        background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(135, 36, 31, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+
+    }
+    .about>h1,.products>h1{
+
+        background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(55, 135, 31, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+    }
 
     </style>
 </head>
@@ -208,13 +240,44 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">NikeWorld</div>
-        <div class="nav-links">
+        <div class="nav-links" >
             <a href="#home">Home</a>
-            <a href="#products">Products</a>
             <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#products">Products</a>
+            
         </div>
     </nav>
+
+    <div class="home" id="home">
+
+    </div>
+
+    <div class="about" id="about">
+<h1 style="text-align: center;">About Us</h1>
+        <p>At Nike, we believe in creating footwear that empowers everyone to push beyond their limits. Whether you’re an athlete, a casual runner, or just someone who appreciates style and comfort, our wide range of shoes is designed to meet your needs.
+        
+        </p>
+
+        <div class="fashion">
+      <div class="card1">
+        <h3>Mens Shoes</h3>
+        <p>Our men's collection offers cutting-edge performance technology, sleek designs, and unmatched comfort. From running shoes engineered for endurance to basketball shoes built for agility and support, Nike ensures that every man is equipped to conquer his sport or daily routine in style.</p></div>
+
+      <div class="card2">
+        <h3>Women's Shoes</h3>
+        <p>Designed with both performance and aesthetics in mind, our women's shoes cater to athletes and trendsetters alike. Whether you're looking for high-performance running shoes, training sneakers, or stylish everyday footwear, Nike has you covered with the perfect blend of function and fashion.</p></div>
+      <div class="card3">
+        <h3>Kids Shoes</h3>
+        <p>For the next generation of athletes and adventurers, Nike offers a versatile range of kids' shoes that combine durability, comfort, and fun designs. From schoolyard play to organized sports, our kids' collection supports every leap, sprint, and step they take.</p></div>
+    </div>
+
+    </div>
+
+    <div class="products" id="products">
+        <h1 style="text-align: center;margin-top: 3%;">Products</h1>
+    </div>
+
+
 
 
 
@@ -231,7 +294,7 @@
         document.body.appendChild(twobuttons);
 
         var sortlist1= document.createElement("button");
-        sortlist1.innerHTML="whitelist"
+        sortlist1.innerHTML="saved for later"
         sortlist1.setAttribute("class", "sortlist1");
         twobuttons.appendChild(sortlist1);
 
@@ -278,13 +341,13 @@
                     card.appendChild(addcart);
 
                     var whitelist= document.createElement("button");
-                    whitelist.innerHTML = "Add to Whitelist";
+                    whitelist.innerHTML = "Save for later";
                     whitelist.setAttribute("class", "whitelist");
                     card.appendChild(whitelist);
 
 
                     whitelist.addEventListener("click", () => {
-                        alert("Item successfully added to the cart!");
+                        alert("Item successfully saved for later!");
                         console.log(val);
                         emp.push(val);
                         localStorage.setItem("whitelist",JSON.stringify(emp))
@@ -319,6 +382,7 @@
 
         hello();
     </script>
+
 
 
 

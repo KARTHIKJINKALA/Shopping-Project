@@ -94,10 +94,69 @@
             font-size: 1.5rem;
             margin-bottom: 20px;
         }
+
+        @media screen and (width<576px) {
+        .parent1 {
+            display: flex;
+            flex-direction: column
+
+
+        }
+
+        .card3 {
+
+            height: auto;
+            width: 40vw;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            font-size: 6px;
+            text-size-adjust: auto;
+        }
+
+        .img2 {
+            height: 10vh;
+            width:40vw;
+        }
+
+        .totalitems{
+
+            height: auto;
+            width: 30vw;
+            text-wrap: wrap;
+        }
+        .para{
+            font-size: 2vh;
+        }
+
+
+    }
+    .head{
+        color: red;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            position: fixed ;
+            top: 0px;
+            z-index: 1;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgb(0, 255, 183);
+    }
     </style>
 </head>
 <body>
-    <h1>My whitelist</h1>
+    <div class="head">
+    <h1>  Saved For Later</h1>
+
+</div>
     <script>
         var emp1=[]
         var output = localStorage.getItem("whitelist");
