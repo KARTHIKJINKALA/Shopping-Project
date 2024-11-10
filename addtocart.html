@@ -129,7 +129,14 @@
 
         @media screen and (width<576px) {
             .navbar{
-                height: 11vh;
+                height: 25vh;
+                display: block;
+                text-align: center;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 2%;
+                justify-content: center;
             }
         .parent1 {
             display: flex;
@@ -158,10 +165,13 @@
             width:40vw;
         }
 
-        .totalitems{
+        .totalbill{
             height: auto;
             width: 30vw;
             text-wrap: wrap;
+          
+            position: fixed;
+            top: 40%;
         }
         .para{
             font-size: 2vh;
