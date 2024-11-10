@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Shoe Store</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: sticky;
+            top: 0px;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            color: black;
+          
+        }
+
+        .navbar .logo h1 {
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            color: black;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .search-bar {
+            padding: 0.3rem 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .cat {
+            margin-top: 3%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cat>img {
+            height: 100vh;
+            width: 94%;
+        }
+
+        .beat {
+            margin-top: 3%;
+            height: 30vh;
+            text-align: center;
+        }
+
+        .beat>h2 {
+            font-size: 12vh;
+        }
+
+        .beat>p {
+            font-size: 3vh;
+        }
+
+        .card {
+            display: flex;
+            column-gap: 2%;
+            justify-content: center;
+            height: 70vh;
+        }
+
+        .card1>img, .card2>img, .card3>img {
+            height: 65vh;
+            width: 30vw;
+        }
+
+        .category {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            gap: 4%;
+        }
+
+        .mens, .womens, .kids {
+            display: flex;
+            align-items: end;
+            height: 65vh;
+            width: 25vw;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .mens {
+            background-image: url(/mens\ shoes.png);
+        }
+
+        .womens {
+            background-image: url(/womens\ shoes.jpeg);
+        }
+
+        .kids {
+            background-image: url(/kids\ shoess.png);
+        }
+
+        .mens>button, .womens>button, .kids>button {
+            background-color: black;
+            border-radius: 5%;
+            width: 99%;
+            color: white;
+            text-align: center;
+            height: 5vh;
+        }
+
+        /* Hover effect */
+        .mens:hover, .womens:hover, .kids:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.9s ease-out, box-shadow 0.6s ease-in-out;
+        }
+
+        .shop {
+            height: 10vh;
+            text-align: center;
+        }
+
+        .shop>h1 {
+            font-size: 5vh;
+            text-align: center;
+        }
+
+        .foot {
+            height: 8vh;
+            text-align: center;
+        }
+        @media screen and (width<576px) {
+            .navbar{
+                display: block;
+                text-align: center;
+            }
+            .nav-links{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                /* column-gap: 14%; */
+            }
+            .beat {
+            /* margin-top: 3%; */
+            height: 68vh;
+            /* text-align: center; */
+        }
+        
+        .cat>img {
+            height: 85vh;
+            width: 100%;
+            /* justify-content: center; */
+        }
+        .card1>img, .card2>img, .card3>img {
+            height: 50vh;
+            width: 30vw;
+        }
+        .mens, .womens, .kids {
+            display: flex;
+            align-items: end;
+            height: 60vh;
+            width: 70vw;
+            background-size: cover;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            /* border: 1px solid red; */
+        }
+        
+        .category {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+            /* gap: 4%; */
+        }
+
+
+        .foot {
+           margin-top: 10%;
+        }
+
+
+
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Nike Shoe Store</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li>
+                    <input type="text" placeholder="Search..." class="search-bar" id="inp1">
+                    <button id="searchBtn">Search</button>
+                </li>
+                <li><a href="whitelist.html"><img src="/icons8-love-24.png" alt=""></a></li>  
+                <li><a href="addtocart.html"><img src="/icons8-cart-50.png" alt=""></a></li>  
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cat">
+            <img src="/Screenshot 2024-11-07 220403.png" alt="">
+        </div>
+    </main>
+
+    <section>
+        <div class="beat">
+            <p>Just In</p>
+            <h2>NOTHING BEATS THE CITY</h2>
+            <p>Built to overcome anything the city throws your way</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <div class="card1">
+                <img src="/ZOOM+FLY+6.png" alt="">
+            </div>
+            <div class="card2">
+                <img src="/SABRINA+2+EP.png" alt="">
+            </div>
+            <div class="card3">
+                <img src="/LEBRON+XXII+EP.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="shop">
+            <h1>Shop by Category</h1>
+        </div>
+        <div class="category" id="products">
+            <div class="mens" id="m1">Mens</div>
+            <div class="womens" id="m2">Womens</div>
+            <div class="kids" id="m3">Kids</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="foot">
+            <p>&copy; 2024 Nike Shoe Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Category navigation functionality
+        document.getElementById("m1").addEventListener("click", () => {
+            window.open("mens.html", "_self");
+        });
+        
+        document.getElementById("m2").addEventListener("click", () => {
+            window.open("women.html", "_self");
+        });
+        
+        document.getElementById("m3").addEventListener("click", () => {
+            window.open("kids.html", "_self");
+        });
+
+        // Search functionality
+        document.getElementById("searchBtn").addEventListener("click", searchFunction);
+
+        document.getElementById("inp1").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                searchFunction();
+            }
+        });
+
+        function searchFunction() {
+            var inp = document.getElementById("inp1").value.toLowerCase();
+            if (inp === "mens shoes") {
+                window.open("mens.html", "_self");
+            } else if (inp === "womens shoes") {
+                window.open("women.html", "_self");
+            } else if (inp === "kids shoes") {
+                window.open("kids.html", "_self");
+            } else {
+                alert("Please enter 'mens shoe', 'womens shoes', or 'kids shoes'");
+            }
+        }
+    </script>
+</body>
+</html>

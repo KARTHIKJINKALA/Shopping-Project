@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    color: black;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    background-color: white;
+}
+
+.navbar .logo h1 {
+    /* font-size: 1.5rem; */
+    color: black;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+}
         .card2 {
             height: auto;
             width: auto;
@@ -133,29 +161,28 @@
         .para{
             font-size: 2vh;
         }
+        
 
 
     }
-    .head{
-        color: red;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(8.5px);
-            -webkit-backdrop-filter: blur(8.5px);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            position: fixed ;
-            top: 0px;
-            z-index: 1;
-            text-align: center;
-            text-shadow: 1px 1px 2px rgb(0, 255, 183);
-    }
+
     </style>
 </head>
 <body>
-    <div class="head">
-    <h1>  Saved For Later</h1>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Nike Shoe Store</h1>
+        </div>
+        <h1>YOUR LISTS</h1>
+        <ul class="nav-links">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="#orders">Orders</a></li>
+            <li><a href="whitelist.html"><img src="/icons8-love-24.png" alt="Whitelist Icon"></a></li>
+            <li><a href="addtocart.html"><img src="/icons8-cart-50.png" alt="Cart Icon"></a></li>
+        </ul>
+    </nav>
+
+</div>
 
 </div>
     <script>
