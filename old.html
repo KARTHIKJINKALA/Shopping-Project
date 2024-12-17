@@ -344,9 +344,9 @@
 
         async function hello() {
             try {
-                var a = await fetch("https://run.mocky.io/v3/3b983d56-dc97-4947-b449-2421880d1827");
+                var a = await fetch();
                 var b = await a.json();
-               var c=b.data
+               var c=b.message
 
 
                 c.map(function(val) {

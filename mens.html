@@ -216,9 +216,10 @@
                 var emp1=[]
         async function hello() {
             try {
-                const response = await fetch("https://run.mocky.io/v3/3b983d56-dc97-4947-b449-2421880d1827");
+                const response = await fetch("https://node-js-16.onrender.com/");
                 const data = await response.json();
-                const items = data.data;
+                console.log(data)
+                const items = data.message;
 
                 // Filter items by "mens shoes" category
                 const mensShoes = items.filter(item => item.category === "mens shoes");
