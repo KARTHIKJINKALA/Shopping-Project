@@ -203,8 +203,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="#orders">Orders</a></li>
             <!-- <li><input type="text" placeholder="Search..." class="search-bar"></li> -->
-            <li><a href="whitelist.html"><img src="icons8-love-24.png" alt=""></a></li>  
-            <li><a href="addtocart.html"><img src="icons8-cart-50.png" alt=""></a></li>  
+            <li><a href="whitelist.html"><img src="icons8-cart-50.png" alt=""></a></li>  
+            <li><a href="addtocart.html"><img src="icons8-love-24.png" alt=""></a></li>  
         </ul>
     </nav>
 
@@ -220,46 +220,52 @@
                 const data = await response.json();
                 const items = data.message;
 
-                // Filter items by "mens shoes" category
                 const mensShoes = items.filter(item => item.category === "womens shoes");
 
-                // Display items in cards
                 const cardContainer = document.getElementById("card-container");
                 mensShoes.forEach(item => {
-                    // Create a card for each item
                     const card = document.createElement("div");
                     card.classList.add("card");
 
-                    // Image element
+              
                     const img = document.createElement("img");
-                    img.src = item.image; // Assuming the API provides an "image" property
+                    img.src = item.image; 
                     img.alt = item.name;
 
-                    // Name element
+                    const addalert=document.createElement("h3");
+                    addalert.innerHTML=""
+
+                    
+                    const savealert=document.createElement("h3");
+                    addalert.innerHTML=""
+
                     const name = document.createElement("h4");
                     name.textContent = item.name;
 
-                    // Price element
+                   
                     const price = document.createElement("p");
-                    price.textContent = "$" + item.price; // Assuming the API provides a "price" property
+                    price.textContent = item.price; 
 
-                    // Button container
+                    
                     const buttonContainer = document.createElement("div");
                     buttonContainer.classList.add("button-container");
 
-                    // Add to Cart button
+           
                     const addToCartButton = document.createElement("button");
                     addToCartButton.classList.add("btn", "add-to-cart");
                     addToCartButton.textContent = "Add to Cart";
                   
 
-                    // Save for Later button
+                  
                     const saveForLaterButton = document.createElement("button");
                     saveForLaterButton.classList.add("btn", "save-for-later");
                     saveForLaterButton.textContent = "Save for Later";
                    
                     saveForLaterButton .addEventListener("click", () => {
-                        alert("Item successfully saved for later!");
+                        savealert.innerHTML=  "Item saved for later"
+                    setTimeout(() => {
+                    savealert.innerHTML = "";  
+                    }, 3000);
                         console.log(item);
                         emp.push(item);
                         localStorage.setItem("whitelist",JSON.stringify(emp))
@@ -267,7 +273,12 @@
                     });
 
                     addToCartButton.addEventListener("click", () => {
-                        alert("Item successfully added to the cart!");
+                        
+                    addalert.innerHTML=  "Item are added to the cart succesfully"
+                    setTimeout(() => {
+                    addalert.innerHTML = "";  
+                    }, 3000);
+          
                         console.log(item);
                         emp1.push(item);
                         localStorage.setItem("cart",JSON.stringify(emp1))
@@ -285,6 +296,11 @@
                     card.appendChild(name);
                     card.appendChild(price);
                     card.appendChild(buttonContainer);
+                    card.appendChild(addalert)
+                    card.appendChild(savealert)
+
+
+                    
 
                     cardContainer.appendChild(card);
                 });

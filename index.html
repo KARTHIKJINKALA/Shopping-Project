@@ -19,12 +19,17 @@
 
         /* Navbar styles */
         .navbar {
-            position: sticky;
-            top: 0px;
+         
             display: flex;
             justify-content: space-between;
             padding: 1rem 2rem;
             color: black;
+            background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 7px );
+-webkit-backdrop-filter: blur( 7px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
           
         }
 
@@ -34,6 +39,7 @@
         }
 
         .nav-links {
+      
             list-style: none;
             display: flex;
             gap: 1rem;
@@ -51,7 +57,9 @@
             border-radius: 5px;
             border: 1px solid #ddd;
         }
-
+        #searchBtn{
+         border-radius: 8px;
+        }
         .cat {
             margin-top: 3%;
             display: flex;
@@ -87,6 +95,7 @@
         .card1>img, .card2>img, .card3>img {
             height: 65vh;
             width: 30vw;
+            border-radius: 12px;
         }
 
         .category {
@@ -94,6 +103,7 @@
             display: flex;
             justify-content: center;
             gap: 4%;
+          
         }
 
         .mens, .womens, .kids {
@@ -103,6 +113,7 @@
             width: 25vw;
             background-size: contain;
             background-repeat: no-repeat;
+            border-radius: 12px;
         }
 
         .mens {
@@ -230,11 +241,15 @@
         </nav>
     </header>
 
+    
+
     <main>
         <div class="cat">
             <img src="Screenshot 2024-11-07 220403.png" alt="">
         </div>
     </main>
+
+    
 
     <section>
         <div class="beat">
@@ -243,6 +258,7 @@
             <p>Built to overcome anything the city throws your way</p>
         </div>
     </section>
+
 
     <section>
         <div class="card">
@@ -276,40 +292,46 @@
     </footer>
 
     <script>
-        // Category navigation functionality
-        document.getElementById("m1").addEventListener("click", () => {
-            window.open("mens.html", "_self");
-        });
-        
-        document.getElementById("m2").addEventListener("click", () => {
-            window.open("women.html", "_self");
-        });
-        
-        document.getElementById("m3").addEventListener("click", () => {
-            window.open("kids.html", "_self");
-        });
+  
+    document.getElementById("m1").addEventListener("click", () => {
+        window.open("mens.html", "_self");
+    });
 
-        // Search functionality
-        document.getElementById("searchBtn").addEventListener("click", searchFunction);
+    document.getElementById("m2").addEventListener("click", () => {
+        window.open("women.html", "_self");
+    });
 
-        document.getElementById("inp1").addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                searchFunction();
-            }
-        });
+    document.getElementById("m3").addEventListener("click", () => {
+        window.open("kids.html", "_self");
+    });
 
-        function searchFunction() {
-            var inp = document.getElementById("inp1").value.toLowerCase();
-            if (inp === "mens shoes") {
-                window.open("mens.html", "_self");
-            } else if (inp === "womens shoes") {
-                window.open("women.html", "_self");
-            } else if (inp === "kids shoes") {
-                window.open("kids.html", "_self");
-            } else {
-                alert("Please enter 'mens shoe', 'womens shoes', or 'kids shoes'");
-            }
+    // Add event listeners for search functionality
+    document.getElementById("searchBtn").addEventListener("click", searchFunction);
+
+    document.getElementById("inp1").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            searchFunction();
         }
+    });
+
+    // Search function
+    function searchFunction() {
+        // Get the input value and trim whitespace
+        var inp = document.getElementById("inp1").value.trim().toLowerCase();
+        
+        // Check the input value and navigate accordingly
+        if (inp === "mens shoes" || inp==="mens shoe") {
+            window.open("mens.html", "_self");
+        } else if (inp === "womens shoes" || inp==="women shoe") {
+            window.open("women.html", "_self");
+        } else if (inp === "kids shoes"  || inp==="kids shoe") {
+            window.open("kids.html", "_self");
+        } else {
+            alert("Please enter 'mens shoes', 'womens shoes', or 'kids shoes'.");
+        }
+    }
+
+
     </script>
 </body>
 </html>

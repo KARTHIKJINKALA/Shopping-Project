@@ -192,6 +192,31 @@
     }
 }
 
+
+.back{
+    background-color:pink;
+    border-radius: 100%;
+
+}
+
+
+/* 
+.back1{
+    background-color:red;
+   
+    border-radius: 100%;
+   
+
+    
+} */
+.a1{
+    width: auto;
+    /* border-radius: 100%; */
+}
+.a2{
+    width: auto;
+    border-radius: 100%;
+}
     </style>
 </head>
 <body>
@@ -203,8 +228,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="#orders">Orders</a></li>
             <!-- <li><input type="text" placeholder="Search..." class="search-bar"></li> -->
-            <li><a href="whitelist.html"><img src="icons8-cart-50.png" alt=""></a></li>  
-            <li><a href="addtocart.html"><img src="icons8-love-24.png" alt=""></a></li>  
+            <li><a href="addtocart.html"><img src="icons8-cart-50.png" alt="" class="a1"></a></li>  
+            <li><a href="whitelist.html"><img src="icons8-love-24.png" alt="" class="a2"></a></li>  
         </ul>
     </nav>
 
@@ -212,90 +237,132 @@
     
 
     <script>
-                var emp=[]
-                var emp1=[]
-        async function hello() {
-            try {
-                const response = await fetch("https://node-js-16.onrender.com/");
-                const data = await response.json();
-                console.log(data)
-                const items = data.message;
+        var emp=[]
+        var emp1=[]
+async function hello() {
+    try {
+        const response = await fetch("https://node-js-16.onrender.com/");
+        const data = await response.json();
+        const items = data.message;
 
-                // Filter items by "mens shoes" category
-                const mensShoes = items.filter(item => item.category === "mens shoes");
+        const mensShoes = items.filter(item => item.category === "womens shoes");
 
-                // Display items in cards
-                const cardContainer = document.getElementById("card-container");
-                mensShoes.forEach(item => {
-                    // Create a card for each item
-                    const card = document.createElement("div");
-                    card.classList.add("card");
+        const cardContainer = document.getElementById("card-container");
+        mensShoes.forEach(item => {
+            const card = document.createElement("div");
+            card.classList.add("card");
 
-                    // Image element
-                    const img = document.createElement("img");
-                    img.src = item.image; // Assuming the API provides an "image" property
-                    img.alt = item.name;
+      
+            const img = document.createElement("img");
+            img.src = item.image; 
+            img.alt = item.name;
 
-                    // Name element
-                    const name = document.createElement("h4");
-                    name.textContent = item.name;
+            const addalert=document.createElement("h3");
+                    addalert.innerHTML=""
 
-                    // Price element
-                    const price = document.createElement("p");
-                    price.textContent = "$" + item.price; // Assuming the API provides a "price" property
+                    
+            const savealert=document.createElement("h3");
+                    addalert.innerHTML=""
 
-                    // Button container
-                    const buttonContainer = document.createElement("div");
-                    buttonContainer.classList.add("button-container");
+            const name = document.createElement("h4");
+            name.textContent = item.name;
 
-                    // Add to Cart button
-                    const addToCartButton = document.createElement("button");
-                    addToCartButton.classList.add("btn", "add-to-cart");
-                    addToCartButton.textContent = "Add to Cart";
-                  
+           
+            const price = document.createElement("p");
+            price.textContent =  item.price; 
 
-                    // Save for Later button
-                    const saveForLaterButton = document.createElement("button");
-                    saveForLaterButton.classList.add("btn", "save-for-later");
-                    saveForLaterButton.textContent = "Save for Later";
+            
+            const buttonContainer = document.createElement("div");
+            buttonContainer.classList.add("button-container");
+
+   
+            const addToCartButton = document.createElement("button");
+            addToCartButton.classList.add("btn", "add-to-cart");
+            addToCartButton.textContent = "Add to Cart";
+          
+
+          
+            const saveForLaterButton = document.createElement("button");
+            saveForLaterButton.classList.add("btn", "save-for-later");
+            saveForLaterButton.textContent = "Save for Later";
+
+           
+           
+            saveForLaterButton .addEventListener("click", () => {
+                savealert.innerHTML=  "Item saved for later"
+                    setTimeout(() => {
+                    savealert.innerHTML = "";  
+                    }, 3000);
+
+                    
+                    
                    
-                    saveForLaterButton .addEventListener("click", () => {
-                        alert("Item successfully saved for later!");
-                        console.log(item);
-                        emp.push(item);
-                        localStorage.setItem("whitelist",JSON.stringify(emp))
+                   setTimeout(() => {
+                 
+                    var back= document.getElementsByClassName("a2")[0]
+                    console.log(back)
+                    back.classList.add("back")
+                    setTimeout(() => {
+                        back.classList.remove("back")
+                    }, 1000);
+                    }, 0);
+               
 
-                    });
+               
+                console.log(item);
+                emp.push(item);
+                localStorage.setItem("whitelist",JSON.stringify(emp))
 
-                    addToCartButton.addEventListener("click", () => {
-                        alert("Item successfully added to the cart!");
-                        console.log(item);
-                        emp1.push(item);
-                        localStorage.setItem("cart",JSON.stringify(emp1))
+            });
 
-                    });
+            addToCartButton.addEventListener("click", () => {
+                
+                addalert.innerHTML=  "Item added to the cart succesfully"
+                    setTimeout(() => {
+                    addalert.innerHTML = "";  
+                    }, 3000);
+
+                    setTimeout(() => {
+                 
+                 var back1= document.getElementsByClassName("a1")[0]
+                 console.log(back1)
+                 back1.classList.add("back1")
+                 setTimeout(() => {
+                     back1.classList.remove("back1")
+                 }, 1000);
+                 }, 0);
+
+
                     
-                    
+                console.log(item);
+                emp1.push(item);
+                localStorage.setItem("cart",JSON.stringify(emp1))
 
-                    // Append buttons to the button container
-                    buttonContainer.appendChild(addToCartButton);
-                    buttonContainer.appendChild(saveForLaterButton);
+            });
+            
+            
 
-                    // Append elements to the card
-                    card.appendChild(img);
-                    card.appendChild(name);
-                    card.appendChild(price);
-                    card.appendChild(buttonContainer);
+            // Append buttons to the button container
+            buttonContainer.appendChild(addToCartButton);
+            buttonContainer.appendChild(saveForLaterButton);
 
-                    cardContainer.appendChild(card);
-                });
-            } catch (err) {
-                console.error("Error:", err);
-            }
-        }
+            // Append elements to the card
+            card.appendChild(img);
+            card.appendChild(name);
+            card.appendChild(price);
+            card.appendChild(buttonContainer);
+            card.appendChild(addalert)
+            card.appendChild(savealert)
 
-        hello();
-    </script>
+            cardContainer.appendChild(card);
+        });
+    } catch (err) {
+        console.error("Error:", err);
+    }
+}
+
+hello();
+</script>
 
 </body>
 </html>
