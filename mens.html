@@ -244,6 +244,7 @@ async function hello() {
         const response = await fetch("https://node-js-16.onrender.com/");
         const data = await response.json();
         const items = data.message;
+        console.log(items)
 
         const mensShoes = items.filter(item => item.category === "womens shoes");
 
@@ -255,7 +256,7 @@ async function hello() {
       
             const img = document.createElement("img");
             img.src = item.image; 
-            img.alt = item.name;
+            // img.alt = item.name;
 
             const addalert=document.createElement("h3");
                     addalert.innerHTML=""
@@ -265,7 +266,8 @@ async function hello() {
                     addalert.innerHTML=""
 
             const name = document.createElement("h4");
-            name.textContent = item.name;
+            name.textContent = item.model;
+            name.style.fontSize="2vh"
 
            
             const price = document.createElement("p");
